@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { Score } from '../types';
-import { SCORE_LABELS } from '../constants';
+import { Score } from '../types.ts';
+import { SCORE_LABELS } from '../constants.tsx';
 
 interface ScoreGroupProps {
   label: string;

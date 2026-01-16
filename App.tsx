@@ -1,10 +1,10 @@
 
 import React, { useState, useCallback } from 'react';
-import { ProjectState, Score } from './types';
-import { VALUE_CRITERIA, RISK_CRITERIA } from './constants';
-import { DashboardHeader } from './components/DashboardHeader';
-import { ScoreGroup } from './components/ScoreGroup';
-import { AnalysisView } from './components/AnalysisView';
+import { ProjectState, Score } from './types.ts';
+import { VALUE_CRITERIA, RISK_CRITERIA } from './constants.tsx';
+import { DashboardHeader } from './components/DashboardHeader.tsx';
+import { ScoreGroup } from './components/ScoreGroup.tsx';
+import { AnalysisView } from './components/AnalysisView.tsx';
 
 const App: React.FC = () => {
   const [project, setProject] = useState<ProjectState>({

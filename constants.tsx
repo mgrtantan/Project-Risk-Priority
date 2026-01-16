@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Score } from './types';
+import { Score } from './types.ts';
 
 export const VALUE_CRITERIA = [
   { id: 'profit', label: '簽價利潤 (Profit)', description: '專案毛利與預算規模' },

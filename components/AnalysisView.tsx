@@ -1,15 +1,14 @@
 
 import React, { useMemo } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Cell } from 'recharts';
-import { ProjectState, PriorityLevel } from '../types';
-import { RISK_THRESHOLD, VALUE_THRESHOLD } from '../constants';
+import { ProjectState, PriorityLevel } from '../types.ts';
+import { RISK_THRESHOLD, VALUE_THRESHOLD } from '../constants.tsx';
 
 interface AnalysisViewProps {
   project: ProjectState;
 }
 
 export const AnalysisView: React.FC<AnalysisViewProps> = ({ project }) => {
-  // Fix: Cast Object.values result to number[] to allow reduce and other arithmetic operations
   const totalValue = (Object.values(project.value) as number[]).reduce((a, b) => a + b, 0);
   const totalRisk = (Object.values(project.risk) as number[]).reduce((a, b) => a + b, 0);
   const isHighRisk = totalRisk >= RISK_THRESHOLD;
@@ -58,7 +57,6 @@ export const AnalysisView: React.FC<AnalysisViewProps> = ({ project }) => {
 
   return (
     <div className="space-y-6">
-      {/* Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-200">
           <p className="text-sm font-medium text-stone-500 mb-1">價值總分 (Value)</p>
@@ -103,7 +101,6 @@ export const AnalysisView: React.FC<AnalysisViewProps> = ({ project }) => {
         </div>
       </div>
 
-      {/* Advisory Section */}
       <div className="bg-stone-900 text-stone-100 p-6 rounded-2xl shadow-lg">
         <div className="flex items-center gap-2 mb-3">
           <div className="w-2 h-6 bg-amber-400 rounded-full"></div>
@@ -114,7 +111,6 @@ export const AnalysisView: React.FC<AnalysisViewProps> = ({ project }) => {
         </p>
       </div>
 
-      {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white p-6 rounded-2xl border border-stone-200">
           <h3 className="text-sm font-bold text-stone-900 mb-4 uppercase tracking-wider">價值維度分析 (Value Insights)</h3>
